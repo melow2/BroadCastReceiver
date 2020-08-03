@@ -42,7 +42,7 @@ class BroadCastReceiverEx : BroadcastReceiver() {
     </intent-filter>
 </receiver>
 ```
-
+#
 #### 두 번째(소스코드로 작성하는 방법)
 * BroadCastReceiver를 상속받은 클래스를 제작.
 ```
@@ -103,7 +103,7 @@ class MainActivity : AppCompatActivity() {
     }
 }
 ```
-
+#
 #### 세 번째(sendBroadCast())
 시스템에서 송신된 내용을 개발자가 수신할 수도 있지만, 개발자가 직접 송신 할 수도 있다.
 
