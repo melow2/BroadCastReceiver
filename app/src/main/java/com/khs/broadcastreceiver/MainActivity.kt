@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         val mBinding = DataBindingUtil.setContentView<ActivityMainBinding>(this,R.layout.activity_main)
         mBinding.btnBroadcast.setOnClickListener {
             var intent = Intent(this,BroadCastReceiverEx::class.java)
-            intent.setAction("br_test")
+            intent.setAction("test")
             sendBroadcast(intent)
         }
     }
