@@ -9,6 +9,6 @@ class WorkActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_work)
-        Toast.makeText(this, intent.getStringExtra("powerStatus"),Toast.LENGTH_LONG).show()
+        Toast.makeText(this,intent.getStringExtra("test"),Toast.LENGTH_LONG).show()
     }
 }

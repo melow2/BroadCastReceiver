@@ -17,6 +17,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:enabled="true"
+            android:name=".BroadCastReceiverEx">
+            <intent-filter>
+                <action android:name="br_test"/>
+                <action android:name="android.intent.action.SCREEN_ON"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

@@ -107,6 +107,47 @@ class MainActivity : AppCompatActivity() {
 #### 세 번째(sendBroadCast())
 시스템에서 송신된 내용을 개발자가 수신할 수도 있지만, 개발자가 직접 송신 할 수도 있다.
 
+* BroadCastReceiver를 상속받은 클래스 제작.
+```
+class BroadCastReceiverEx() : BroadcastReceiver() {
+    
+    override fun onReceive(c: Context, i: Intent) {
+        Toast.makeText(c,i.action,Toast.LENGTH_LONG).show()
+        if (i.action == "com.khs.broadcast") {
+            val intent = Intent(c,WorkActivity::class.java)
+            intent.putExtra("test","test1")
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            c.startActivity(intent)
+        }
+    }
+}
+```
+* 소스 코드 작성.
+```
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val mBinding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        mBinding.btnBroadcast.setOnClickListener {
+            var intent = Intent(this,BroadCastReceiverEx::class.java)
+            intent.setAction("com.khs.broadcast")
+            sendBroadcast(intent)
+        }
+    }
+}
+```
+* manifest 작성
+```
+<receiver
+    android:enabled="true"
+    android:name=".BroadCastReceiverEx">
+    <intent-filter>
+        <action android:name="com.khs.broadcast"/>
+    </intent-filter>
+</receiver>
+```
+#
 
 
 
